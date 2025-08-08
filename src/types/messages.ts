@@ -37,12 +37,6 @@ interface IEntry {
   changes: IChange[];
 }
 
-interface IMetaData {
-  object: string;
-  gs_app_id: string;
-  entry: IEntry[];
-}
-
 export interface IWhatsappMessage extends Document {
   payload_type: string;
   metaData: {

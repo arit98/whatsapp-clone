@@ -14,6 +14,7 @@ import {
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { IWhatsappMessage } from '@/types/messages';
 
 interface ChatAreaProps {
   contact: {
@@ -35,7 +36,8 @@ interface Message {
   isSent: boolean;
   contactId?: string;
   phoneNumber_id?: string;
-  messages?: any;
+  messages?: IWhatsappMessage[];
+
   from?: string;
   text?: {
     body: string;
@@ -50,7 +52,6 @@ export const ChatArea = ({
 }: ChatAreaProps) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
-  const [businessPhoneId, setBusinessPhoneId] = useState<string | undefined>(undefined);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const number = '919937320320';
@@ -74,6 +75,7 @@ export const ChatArea = ({
 
   useEffect(() => {
     if (selectedMessages && selectedMessages.length > 0) {
+      // @ts-ignore
       setMessages(selectedMessages[0].messages || []);
     }
   }, [selectedMessages]);
@@ -90,7 +92,6 @@ export const ChatArea = ({
         timestamp: Math.floor(Date.now() / 1000), 
         isSent: true,
         contactId: contact.id,
-        phoneNumber_id: businessPhoneId,
         text: { body: message.trim() },
         from: number,
       };
