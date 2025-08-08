@@ -14,8 +14,6 @@ async function dbConnect(): Promise<void> {
 
     try {
         const mongoUri = process.env.NEXT_PUBLIC_MONGODB_URI;
-
-        console.log("mongo url: ",mongoUri);
         
         if (!mongoUri) {
             throw new Error("MONGODB_URI environment variable is not set. Please check your .env.local file.");

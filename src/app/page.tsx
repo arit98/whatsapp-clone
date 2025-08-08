@@ -79,9 +79,6 @@ export default function Home() {
     setSelectedContact(null);
   };
 
-  useEffect(()=>{
-    dbConnect();
-  },[])
   return (
         <div className="flex h-screen bg-chat-bg overflow-hidden">
       {/* Mobile Responsive*/}
