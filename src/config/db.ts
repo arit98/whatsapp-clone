@@ -17,7 +17,7 @@ async function dbConnect(): Promise<void> {
     try {
         const mongoUri = `mongodb+srv://${user_name}:${password}@whatsapp.dtfu88z.mongodb.net/`;
 
-        console.log(mongoUri);
+        console.log("mongo url: ",mongoUri);
         
         if (!mongoUri) {
             throw new Error("MONGODB_URI environment variable is not set. Please check your .env.local file.");

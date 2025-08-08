@@ -1,6 +1,7 @@
 "use client"
 import { ChatArea } from "@/components/chat-area";
 import { ContactsList } from "@/components/contact-list";
+import dbConnect from "@/config/db";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -77,6 +78,10 @@ export default function Home() {
     setShowChat(false);
     setSelectedContact(null);
   };
+
+  useEffect(()=>{
+    dbConnect();
+  },[])
   return (
         <div className="flex h-screen bg-chat-bg overflow-hidden">
       {/* Mobile Responsive*/}
