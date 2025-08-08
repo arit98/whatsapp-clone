@@ -13,7 +13,7 @@ async function dbConnect(): Promise<void> {
     }
 
     try {
-        const mongoUri = process.env.MONGODB_URI;
+        const mongoUri = process.env.NEXT_PUBLIC_MONGODB_URI;
 
         console.log("mongo url: ",mongoUri);
         
