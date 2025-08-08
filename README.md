@@ -20,6 +20,37 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## API Setup
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory with your MongoDB connection string:
+
+```bash
+MONGODB_URI=mongodb://localhost:27017/whatsapp-clone
+```
+
+For MongoDB Atlas, use:
+```bash
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/whatsapp-clone?retryWrites=true&w=majority
+```
+
+### API Endpoints
+
+- **GET** `/api/webhook` - Fetch all webhook data
+- **POST** `/api/webhook` - Create new webhook entry
+- **GET** `/api/test` - Test database connection
+- **POST** `/api/test` - Create sample webhook data
+
+### Troubleshooting
+
+If `/api/webhook` returns an empty array `[]`:
+
+1. **Check MongoDB Connection**: Visit `/api/test` to verify database connectivity
+2. **Add Sample Data**: POST to `/api/test` to create sample webhook entries
+3. **Check Environment Variables**: Ensure `MONGODB_URI` is set in `.env.local`
+4. **Check Console Logs**: Look for database connection errors in the terminal
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
