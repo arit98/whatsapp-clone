@@ -7,15 +7,13 @@ interface ConnectionObject {
 const connection: ConnectionObject = {}
 
 async function dbConnect(): Promise<void> {
-    const {user_name, password} = process.env;
-
     if(connection.isConnect) {
         console.log("Database is already connected");
         return;
     }
 
     try {
-        const mongoUri = `mongodb+srv://${user_name}:${password}@whatsapp.dtfu88z.mongodb.net/`;
+        const mongoUri = process.env.MONGODB_URI;
 
         console.log("mongo url: ",mongoUri);
         
